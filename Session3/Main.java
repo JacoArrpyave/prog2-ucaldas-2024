@@ -1,12 +1,15 @@
 public class Main {
-    static Persona persona1 = new Persona();
-    static Persona bryan = new Persona();
+    static Persona pipe = new Persona();
+    static Persona jacobo = new Persona();
+    static Persona jaider =new Persona();
+    static Vehiculo carro=new Vehiculo(4, "rojo", false);
+    
 
     static Animal inst_animal = new Animal();
 
     public static void main(String[] args) {
-        // persona1.inputDataUser();
-        // inst_animal.showInformation();
+            pipe.inputDataUser();
+        inst_animal.showInformation();
 
        Vehiculo[] vehiculos = new Vehiculo[3]; 
 
@@ -15,6 +18,8 @@ public class Main {
 
        System.out.println(vehiculos[0].cantidadRuedas); // 4
        System.out.println(Vehiculo.cantidadDeVehiculos); // 2
+       
+       
     }
-    
+        
 }
