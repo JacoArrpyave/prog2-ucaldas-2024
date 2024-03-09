@@ -8,6 +8,7 @@ public class Exercise3 {
     public Integer buscar(LinkedList<Integer> numeros) {
         System.out.println("Ingrese el numero que quiere buscar dentro de sus datos");
         return numeros.indexOf(scn.nextInt());
+        
 
 
     }
@@ -16,7 +17,7 @@ public class Exercise3 {
         LinkedList<Integer> numeros = new LinkedList<>();
         System.out.println("Cuantos elementos quiere que tenga su Linkedlist");
         int tamaño = scn.nextInt();
-        for (int i = 1; i < tamaño; i++) {
+        for (int i = 0; i < tamaño; i++) {
             System.out.println("Ingrese el numero que quiere que sea guardado");
             numeros.add(scn.nextInt());
 

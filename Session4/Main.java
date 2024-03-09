@@ -5,38 +5,38 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        // // EJERCICIO 1
-        // int[] numeros = { 1, 2, 3, 4, 5 };
-        // Exercise1 exercise1 = new Exercise1();
-        // System.out.println(exercise1.sumaDeArreglos(numeros));
-        // System.out.println("********************");
+        // EJERCICIO 1
+        int[] numeros = { 1, 2, 3, 4, 5 };
+        Exercise1 exercise1 = new Exercise1();
+        System.out.println(exercise1.sumaDeArreglos(numeros));
+        System.out.println("********************");
 
-        // // EJERCICIO 2
-        // Exercise2 exercise2 = new Exercise2();
+        // EJERCICIO 2
+        Exercise2 exercise2 = new Exercise2();
 
-        // ArrayList<String> arreglo = new ArrayList<>();
-        // arreglo.add("esposa");
-        // arreglo.add("marido");
-        // arreglo.add("casa");
-        // arreglo.add("carro");
-        // exercise2.agregar_Y_Eliminar(arreglo);
-        // System.out.println("****************");
+        ArrayList<String> arreglo = new ArrayList<>();
+        arreglo.add("esposa");
+        arreglo.add("marido");
+        arreglo.add("casa");
+        arreglo.add("carro");
+        exercise2.agregar_Y_Eliminar(arreglo);
+        System.out.println("****************");
 
-        // // Ejercicio 3
-        // Exercise3 ejExercise3=new Exercise3();
+        // Ejercicio 3
+        Exercise3 ejExercise3=new Exercise3();
 
-        // @SuppressWarnings("unchecked")
-        // LinkedList<Integer> numero = ejExercise3.crear();
-        // System.out.println(ejExercise3.buscar(numero));
+        @SuppressWarnings("unchecked")
+        LinkedList<Integer> numero = ejExercise3.crear();
+        System.out.println(ejExercise3.buscar(numero));
 
-        // System.out.println("**************");
+        System.out.println("**************");
 
         // Ejercicio 4
         Scanner scn = new Scanner(System.in);
         boolean finalizar = false;
         ArrayList<Persona2> contactos = new ArrayList<>();
 
-        do {
+        // do {
             System.out.println(
                     "Escriba 1 para crear nuevo contacto. \n Escriba 2 para eliminar contacto \n Escriba 3 para mostrar todos los contactos \n Escriba 4 para buscar un contacto \n Escriba 5 para salir del menu ");
             int opcion = scn.nextInt();
@@ -100,7 +100,7 @@ public class Main {
                     System.out.println("Esta opción es inváliada ");
                     break;
             }
-        } while (!finalizar);
+        while (!finalizar);
 
     }
 
