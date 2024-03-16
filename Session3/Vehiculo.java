@@ -5,6 +5,10 @@ public class Vehiculo {
     public String color;
     public boolean esGasolina;
 
+    public static void inputDataCar(){
+        
+    }
+
     public Vehiculo(int cantidadRuedas, String color, boolean esGasolina){
         this.cantidadRuedas = cantidadRuedas;
         this.color = color;
