@@ -2,9 +2,11 @@
 package Registro_Universidad;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class RegistroEstudiante {
     ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
+    Scanner scn = new Scanner(System.in);
 
     public void agregarEstudiante(Estudiante estudiante) {
         boolean estudianteExistente = false;
@@ -24,29 +26,41 @@ public class RegistroEstudiante {
         }
     }
 
+    public Estudiante crearEstudiante() {
+        String nombre = "";
+        String codigo = "";
+        String carrera = "";
+        double promedio;
+        System.out.println("Ingrese los datos del estudiante que va agregar.");
+        System.out.println("Nombre del estudiante");
+        nombre = scn.nextLine();
+        System.out.println("Codigo del estudiante");
+        codigo = scn.nextLine();
+        System.out.println("Carrera del estudiante");
+        carrera = scn.nextLine();
+        System.out.println("Promedio del estudiante");
+        promedio = scn.nextDouble();
+        return (new Estudiante(nombre, codigo, carrera, promedio));
+    }
+
     public void eliminarEstudiante(String codigo) {
-        boolean estudianteExistente = false;
-        for (Estudiante estudiantes : listaEstudiantes) {
-            if (codigo.equals(estudiantes.getCodigo())) {
-                estudianteExistente = true;
-                listaEstudiantes.remove(estudiantes);
-
-                break;
-
-            }
-
-        }
-        if (!estudianteExistente) {
-            System.out.println("El estudiante con codigo " + codigo + " no extiste por lo tanto no se puede eliminar ");
-
+        if (buscarEstudiantes(codigo).size()>0) {
+            listaEstudiantes.remove(buscarEstudiantes(codigo).get(0));
+            
+        }else{
+            System.out.println("Este codigo no esta registrado");
         }
     }
 
-    public void mostrarEstudiantes(ArrayList<Estudiante> registroEstudiantes) {
+    public void mostrarEstudiantes(ArrayList<Estudiante> lista) {
+        if (lista.size() > 0) {
 
-        for (Estudiante estudiantes : registroEstudiantes) {
-            System.out.println(estudiantes);
-
+            for (Estudiante estudiantes : lista) {
+                System.out.println(estudiantes);
+    
+            }
+        } else {
+            System.out.println("No se encontro ningun estudiante");
         }
 
     }
@@ -56,7 +70,7 @@ public class RegistroEstudiante {
         boolean existeEstudiantes = false;
         for (Estudiante estudiantes : listaEstudiantes) {
             if (estudiantes.getCarrera().equals(filtro)
-                    || estudiantes.getNombre().equals(filtro))|| estudiantes.getCodigo().equals(filtro){
+                    || estudiantes.getNombre().equals(filtro) || estudiantes.getCodigo().equals(filtro)) {
                 filtroestudiantes.add(estudiantes);
                 existeEstudiantes = true;
 
@@ -70,5 +84,5 @@ public class RegistroEstudiante {
         return filtroestudiantes;
 
     }
-  
+
 }

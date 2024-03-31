@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import Registro_Universidad.Estudiante;
+
 public class RegistroBiblioteca {
     ArrayList<Libro> registroLibros = new ArrayList<>();
     ArrayList<Autor> registroAutores = new ArrayList<>();
@@ -99,10 +101,10 @@ public class RegistroBiblioteca {
         }
     }
 
-    public void listarLibros() {
-        if (registroLibros.size() > 0) {
+    public void listarLibros(ArrayList<Libro> lista) {
+        if (lista.size() > 0) {
 
-            for (Libro libros : registroLibros) {
+            for (Libro libros : lista) {
                 System.out.println(libros);
             }
         } else {
@@ -152,6 +154,30 @@ public class RegistroBiblioteca {
         String isbn;
         String categoria;
         int ejemplares;
+        Autor autor = new Autor();
+        System.out.println("Presione 1) Crear un nuevo autor \n Presione 2) Autor existente");
+        int opcion = scn.nextInt();
+        switch (opcion) {
+            case 1:
+                autor = crearAutor();
+                break;
+            case 2:
+                System.out.println("Estos son los autores registrados");
+                listarAutores();
+                System.out.println("Ingrese el nombre de el autor ");
+                String nombreAutor = scn.nextLine();
+                for (Autor autores : registroAutores) {
+                    if (autores.getNombre().equals(nombreAutor)) {
+                        autor=autores;
+                        break;
+                    }
+                }
+
+                break;
+
+            default:
+                break;
+        }
         System.out.println("Ingrese el nombre del libro");
         titulo = scn.nextLine();
 
@@ -164,20 +190,18 @@ public class RegistroBiblioteca {
         System.out.println("Ingrese cuantos ejemplares va a registar del libro");
         ejemplares = scn.nextInt();
 
-        System.out.println("Tenga en cuenta que para registrar un libro neceseita registrar un autor");
-        scn.nextLine();
-        return new Libro(titulo, isbn, ejemplares, crearAutor(), categoria);
+        return new Libro(titulo, isbn, ejemplares, autor, categoria);
 
     }
 
     public Prestamo crearPrestamo() {
 
         String isbn;
-        listarLibros();
-       
+        listarLibros(registroLibros);
+
         System.out.println("¿Cúal de estos libros desea alquilar?.Escriba el ISBN del libo");
         isbn = scn.nextLine();
-       
+
         return new Prestamo(buscarLibros(isbn).get(0), crearUsuario(), Utils.crearFecha("Ingrese fecha de prestamo"),
                 Utils.crearFecha("Ingrese fecha de devolución"));// validar que existe el libro
 
@@ -206,20 +230,20 @@ public class RegistroBiblioteca {
         System.out.println("Estos son los prestamos del usuario identificado con la cedula " + cedula);
         listarPrestamos(prestamosUsuario, "El usuario no tiene prestamos registrados");
         System.out.println("¿Cúal libro desean devolver?.Escriban el ISBN del libro");
-        String isbn=scn.nextLine();
-        boolean existePrestamo=false;
-        Prestamo prestamo=new Prestamo();
+        String isbn = scn.nextLine();
+        boolean existePrestamo = false;
+        Prestamo prestamo = new Prestamo();
 
         for (Prestamo prestamos : prestamosUsuario) {
             if (prestamos.getLibro().getIsbn().equals(isbn)) {
-                existePrestamo=true;
-                prestamo=prestamos;
+                existePrestamo = true;
+                prestamo = prestamos;
                 break;
-                
+
             }
         }
         return prestamo;
-        
+
     }
 
 }

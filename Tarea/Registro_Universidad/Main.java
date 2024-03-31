@@ -22,64 +22,34 @@ public class Main {
             opcion = scn.nextInt();
             switch (opcion) {
                 case 1:
-                    String nombre = "";
-                    String codigo = "";
-                    String carrera = "";
-                    double promedio;
-
-                    System.out.println("Ingrese los datos del estudiante que va agregar.");
-                    System.out.println("Nombre del estudiante");
-                    scn.nextLine();
-                    nombre = scn.nextLine();
-                    System.out.println("Codigo del estudiante");
-                    codigo = scn.nextLine();
-                    System.out.println("Carrera del estudiante");
-                    carrera = scn.nextLine();
-                    System.out.println("Promedio del estudiante");
-                    promedio = scn.nextDouble();
-                    instanciaRegistro.agregarEstudiante(new Estudiante(nombre, codigo, carrera, promedio));
+                    instanciaRegistro.agregarEstudiante(instanciaRegistro.crearEstudiante());
 
                     break;
                 case 2:
-                    if (instanciaRegistro.listaEstudiantes.size() > 0) {
+                    instanciaRegistro.mostrarEstudiantes(instanciaRegistro.listaEstudiantes);
 
-                        instanciaRegistro.mostrarEstudiantes(instanciaRegistro.listaEstudiantes);
-                    } else {
-                        System.out.println("No hay ningun estudiante listado");
-                    }
                     break;
                 case 3:
                     String codigoEliminar = "";
-                    scn.nextLine();
-                    if (instanciaRegistro.listaEstudiantes.size() > 0) {
-                        System.out.println("Ingrese el codigo del estudiante que desea eliminar");
-                        codigoEliminar = scn.nextLine();
-                        instanciaRegistro.eliminarEstudiante(codigoEliminar);
-                        instanciaRegistro.mostrarEstudiantes(instanciaRegistro.listaEstudiantes);
-
-                    } else {
-                        System.out.println("No hay ningun estudiante listado");
-                    }
-
+                    
+                    System.out.println("Ingrese el codigo del estudiante que desea eliminar");
+                    codigoEliminar = scn.nextLine();
+                    instanciaRegistro.eliminarEstudiante(codigoEliminar);
+                    
+                    
                     break;
                 case 4:
-                    String filtro = "";
-                    ArrayList<Estudiante> listaConFiltro;
-                    scn.nextLine();
-                    if (instanciaRegistro.listaEstudiantes.size() > 0) {
-                        System.out.println(
-                                "Ingrese el filtro para buscar los estudiantes en comun\n Nota:Puede ser un nombre o carrera en común ");
-                        filtro = scn.nextLine();
-                        listaConFiltro = instanciaRegistro.buscarEstudiantes(filtro);
-                        instanciaRegistro.mostrarEstudiantes(listaConFiltro);
-
-                    } else {
-                        System.out.println("No hay ningun estudiante listado");
-                    }
+                scn.nextLine();
+                System.out.println("Ingrese el filtro para buscar");
+                String filtro=scn.nextLine();
+                   
+                        instanciaRegistro.mostrarEstudiantes(instanciaRegistro.buscarEstudiantes(filtro));
+                    
 
                     break;
                 case 5:
                     esSalir = true;
+                    System.out.println("Programa finalizado");
                     break;
 
                 default:

@@ -18,8 +18,11 @@ import java.util.Scanner;
 
 public class Main {
     static RegistroBiblioteca instancia_Registro = new RegistroBiblioteca();
+    static Autor instancia_Autor = new Autor();
+    
 
     public static void main(String[] args) {
+        System.out.println(instancia_Autor.getNombre());
 
         Scanner scn = new Scanner(System.in);
         boolean esSalir = false;
@@ -50,7 +53,7 @@ public class Main {
 
                     break;
                 case 5:
-                    instancia_Registro.listarLibros();
+                    instancia_Registro.listarLibros(instancia_Registro.registroLibros);
 
                     break;
                 case 6:
@@ -64,19 +67,18 @@ public class Main {
                     break;
                 case 8:
                     scn.nextLine();
-                    if (instancia_Registro.registroLibros.size()>0) {
-                        
-                    
-                    System.out.println("Que busqueda desea realizar");
-                    instancia_Registro.buscarLibros(scn.nextLine());
-                    }else{
+                    if (instancia_Registro.registroLibros.size() > 0) {
+
+                        System.out.println("Que busqueda desea realizar");
+                        instancia_Registro.buscarLibros(scn.nextLine());
+                    } else {
                         System.out.println("No hay libros registrados");
                     }
 
                     break;
 
                 default:
-                System.out.println("Dato no valido");
+                    System.out.println("Dato no valido");
                     break;
             }
 
