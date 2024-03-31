@@ -1,10 +1,4 @@
-// a. agregarEstudiante(Estudiante estudiante): Agrega un estudiante al registro. Este método debe realizar las mismas
-// validaciones que el ejercicio anterior.
-// b. eliminarEstudiante(String codigo): Elimina el estudiante que coincida con el código especificado.
-// c. listarEstudiantes(): Imprime en la consola la información de todos los estudiantes registrados.
-// d. buscarEstudiantes(String filtro): Busca y retorna una lista de estudiantes que coincidan con el filtro especificado. El
-// filtro puede ser una cadena que se compara con el nombre, el código o la carrera del estudiante. Cualquiera de los
-// 3 filtros se deben permitir.
+
 package Registro_Universidad;
 
 import java.util.ArrayList;
@@ -25,6 +19,7 @@ public class RegistroEstudiante {
         }
         if (!estudianteExistente) {
             listaEstudiantes.add(estudiante);
+            System.out.println("Estudiante registrado");
 
         }
     }
@@ -60,8 +55,8 @@ public class RegistroEstudiante {
         ArrayList<Estudiante> filtroestudiantes = new ArrayList<>();
         boolean existeEstudiantes = false;
         for (Estudiante estudiantes : listaEstudiantes) {
-            if (estudiantes.getCarrera().equals(filtro) || estudiantes.getCodigo().equals(filtro)
-                    || estudiantes.getNombre().equals(filtro)) {
+            if (estudiantes.getCarrera().equals(filtro)
+                    || estudiantes.getNombre().equals(filtro))|| estudiantes.getCodigo().equals(filtro){
                 filtroestudiantes.add(estudiantes);
                 existeEstudiantes = true;
 
@@ -75,4 +70,5 @@ public class RegistroEstudiante {
         return filtroestudiantes;
 
     }
+  
 }

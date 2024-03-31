@@ -68,7 +68,7 @@ public class Main {
                     scn.nextLine();
                     if (instanciaRegistro.listaEstudiantes.size() > 0) {
                         System.out.println(
-                                "Ingrese el filtro para buscar los estudiantes en comun\n Nota:Puede ser un codigo,nombre o carrera en común ");
+                                "Ingrese el filtro para buscar los estudiantes en comun\n Nota:Puede ser un nombre o carrera en común ");
                         filtro = scn.nextLine();
                         listaConFiltro = instanciaRegistro.buscarEstudiantes(filtro);
                         instanciaRegistro.mostrarEstudiantes(listaConFiltro);
