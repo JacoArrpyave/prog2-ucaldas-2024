@@ -45,9 +45,9 @@ public class Prestamo {
 
     @Override
     public String toString() {
-        return "Prestamo [libro=" + libro.toString() + ", usuario=" + usuario.toString() + ", fechaPrestamo: Año="
-                + fechaPrestamo.getYear() + ",Mes=" + fechaPrestamo.getMonth() + ",1Día="+fechaPrestamo.getDay()
-                + ", fechaDevolucion:Año="+fechaDevolucion.getYear() +",Mes="+fechaDevolucion.getMonth() +",Día="+fechaDevolucion.getDay()+"+]";
+        return "PRESTAMO\n"+ libro.toString() + usuario.toString() + "\nFechaPrestamo:\n Año="
+                + fechaPrestamo.getYear() + "\n Mes=" + fechaPrestamo.getMonth() + "\n Día="+fechaPrestamo.getDate()
+                + "\nfechaDevolucion:\n Año="+fechaDevolucion.getYear() +"\n Mes="+fechaDevolucion.getMonth() +"\n Día="+fechaDevolucion.getDate();
     }
 
 }

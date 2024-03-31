@@ -15,7 +15,7 @@ public class Usuario {
     }
     @Override
     public String toString() {
-        return "Usuario [nombre=" + nombre + ", cedula=" + cedula + "]";
+        return "Usuario:\n Nombre del usuario=" + nombre + "\n Cedula del usuario=" + cedula ;
     }
     
     

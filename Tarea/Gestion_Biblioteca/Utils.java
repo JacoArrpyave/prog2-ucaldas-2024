@@ -15,7 +15,8 @@ public class Utils {
         int mes = scn.nextInt();
         System.out.println("Ingrese el dia");
         int dia = scn.nextInt();
-        return new Date(año + 1900, mes -1, dia);
+       
+        return new Date(año, mes -1, dia);
 
     }
 

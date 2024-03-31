@@ -17,6 +17,6 @@ public class Autor {
     }
     @Override
     public String toString() {
-        return "Autor [nombre=" + nombre + ", nacionalidad=" + nacionalidad + "]";
+        return "Autor\n Nombre del autor =" + nombre + "\n Nacionalidad del autor=" + nacionalidad ;
     }
 }

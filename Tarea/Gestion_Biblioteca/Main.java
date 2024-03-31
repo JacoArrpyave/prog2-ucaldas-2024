@@ -1,3 +1,4 @@
+import java.sql.Date;
 import java.util.Scanner;
 // a. registrarLibro(Libro libro): Agrega un libro al registro. Este método debe realizar las mismas validaciones que el
 // ejercicio anterior.
@@ -18,16 +19,13 @@ import java.util.Scanner;
 
 public class Main {
     static RegistroBiblioteca instancia_Registro = new RegistroBiblioteca();
-    static Autor instancia_Autor = new Autor();
-    
+    static Scanner scn = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println(instancia_Autor.getNombre());
-
-        Scanner scn = new Scanner(System.in);
+        instancia_Registro.leerTxt();
         boolean esSalir = false;
 
-        System.out.println("Registro biblioteca");
+        System.out.println("\nREGISTRO BIBLIOTECA");
         do {
             int opcion;
             System.out.println(
@@ -36,9 +34,7 @@ public class Main {
             opcion = scn.nextInt();
             switch (opcion) {
                 case 1:
-                    instancia_Registro.registrarLibros(instancia_Registro.crearLibro());// falta crear la opcion de que
-                                                                                        // ya meta un autor existente
-
+                    instancia_Registro.registrarLibros(instancia_Registro.crearLibro());
                     break;
                 case 2:
                     instancia_Registro.registrarAutor(instancia_Registro.crearAutor());
@@ -70,7 +66,7 @@ public class Main {
                     if (instancia_Registro.registroLibros.size() > 0) {
 
                         System.out.println("Que busqueda desea realizar");
-                        instancia_Registro.buscarLibros(scn.nextLine());
+                        instancia_Registro.listarLibros(instancia_Registro.buscarLibros(scn.nextLine()));
                     } else {
                         System.out.println("No hay libros registrados");
                     }

@@ -47,13 +47,6 @@ public class Libro {
         return categoria;
     }
 
-    @Override
-    public String toString() {
-        return "Libro [titulo=" + titulo + ",categoria=" + categoria + ", isbn=" + isbn + ", ejemplares=" + ejemplares
-                + ", autor="
-                + autor.toString() + "]";
-    }
-
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -72,6 +65,12 @@ public class Libro {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return "LIBRO:\n Titulo del libro=" + titulo + "\n Categoria del libro=" + categoria + "\n ISBN del libro=" + isbn + "\n Ejemplaresm del libro=" + ejemplares+"\n"
+                + autor.toString() + "\n";
     }
 
 }
