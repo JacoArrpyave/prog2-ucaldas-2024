@@ -19,5 +19,11 @@ public class Categoria {
     public String toString() {
         return "Categoria [nombre=" + nombre + ", descripcion=" + descripcion + "]";
     }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
 }

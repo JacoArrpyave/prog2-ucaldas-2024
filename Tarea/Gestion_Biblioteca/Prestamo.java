@@ -38,8 +38,8 @@ public class Prestamo {
         return fechaDevolucion;
     }
 
-    public boolean fechaVencida() {
-        Date fechaActual = Utils.crearFecha("Ingrese la fecha actual");
+    public boolean fechaVencida(Date fechaActual) {
+        
         return fechaActual.compareTo(this.fechaDevolucion) > 0;
     }
 

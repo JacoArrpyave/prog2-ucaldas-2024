@@ -10,6 +10,7 @@ public class Main {
     static RegistroEstudiante instanciaRegistro = new RegistroEstudiante();
 
     public static void main(String[] args) {
+        instanciaRegistro.leerTxt();
         Scanner scn = new Scanner(System.in);
         boolean esSalir = false;
         System.out.println("Registro de estudiantes ");

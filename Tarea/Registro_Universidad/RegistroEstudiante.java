@@ -1,6 +1,9 @@
 
 package Registro_Universidad;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -83,6 +86,23 @@ public class RegistroEstudiante {
         }
         return filtroestudiantes;
 
+    }
+    public void leerTxt(){
+         try (BufferedReader reader = new BufferedReader(new FileReader("Lista_Estudiantes.txt"))) {
+            String linea = "";
+            while ((linea = reader.readLine()) != null) {
+                String[] bloques = linea.split(",");
+                if (bloques.length == 4) {
+                    String nombre = bloques[0];
+                    String codigo = bloques[1];
+                    String carrera = bloques[2];
+                    Double promedio = Double.parseDouble(bloques[3]);
+                    listaEstudiantes.add(new Estudiante(nombre, codigo, carrera, promedio));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
     }
 
 }

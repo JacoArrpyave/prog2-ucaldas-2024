@@ -1,0 +1,6 @@
+Arroz,Alimentos basicos,productos de la canasta familiar,3999.0,8
+Aceite de cocina,Alimentos basicos,productos de la canasta familiar,5999.0,1
+Papel higienico,Aseo,productos de limpieza e higiene personal,2999.0,1
+Pan,Alimentos basicos,productos de la canasta familiar,1999.0,12
+Detergente,Limpieza,productos de limpieza del hogar,4999.0,8
+Leche,Alimentos basicos,productos de la canasta familiar,2999.0,1

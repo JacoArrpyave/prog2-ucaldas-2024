@@ -19,7 +19,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.util.Scanner;
 
 public class RegistroBiblioteca {
@@ -40,6 +40,7 @@ public class RegistroBiblioteca {
         }
 
     }
+    
 
     public void registrarLibros(Libro libro) {
         boolean existeLibro = false;
@@ -64,9 +65,10 @@ public class RegistroBiblioteca {
     public void registarPrestamo(Prestamo prestamo) {
         if (prestamo.getLibro().hayEjemplares()) {
             boolean fechaVencida = false;
+            Date fechaActual=(Utils.crearFecha("Ingrese la fecha actual"));
             for (Prestamo prestamos : prestamosUsuario) {
                 if (prestamo.getUsuario().getCedula().equals(prestamos.getUsuario().getCedula())) {
-                    if (prestamo.fechaVencida()) {
+                    if (prestamo.fechaVencida(fechaActual)) {
                         fechaVencida = true;
                     }
                 }
@@ -76,16 +78,13 @@ public class RegistroBiblioteca {
                         + " tiene fechas vencidas");
             } else {
                 prestamosUsuario.add(prestamo);
-                if (prestamo.getLibro().getEjemplares() > 0) {
+               
 
                     prestamo.getLibro().setEjemplares(prestamo.getLibro().getEjemplares() - 1);
 
                     System.out.println("Registro completado");
-                } else {
-                    System.out.println("No hay ejemplares disponibles del libro " + prestamo.getLibro().getTitulo());
-
-                }
-            }
+                } 
+            
 
         } else {
             System.out.println(
