@@ -22,6 +22,10 @@ public class Venta {
     public Date getFechaVenta() {
         return fechaVenta;
     }
+    @Override
+    public String toString() {
+        return "Venta [producto=" + producto + ", cantidad=" + cantidad + ", fechaVenta=" + fechaVenta + "]";
+    }
     
     
 }

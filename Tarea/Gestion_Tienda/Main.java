@@ -30,6 +30,7 @@ public class Main {
             System.out.println(
                     "Menú\n Escoja 1) Registrar producto\n Escoja 2) Registrar categoria\n Escoja 3) Registrar proveedor\n Escoja 4) Registrar venta\n Escoja 5) Listar productos\n Escoja 6) Listar categorias\n Escoja 7) Listar proveedores\n Escoja 8) Listar ventas\n Escoja 9) Buscar un libro con filtro(El filtro puede ser una cadena que se compara con el nombre, la categoría o el precio del producto)");
             opcion = scn.nextInt();
+            scn.nextLine();
             switch (opcion) {
                 case 1:
                     instacia_Registro.registrarProducto(instacia_Registro.crearProducto());
@@ -70,6 +71,7 @@ public class Main {
                 System.out.println("Esta opcion es invalida5");
                     break;
             }
+
 
         } while (!esSalir);
 

@@ -200,15 +200,15 @@ public class RegistroInventario {
         int dia = 0;
         int mes = 0;
         int año = 0;
-        Producto producto = new Producto(null, null, 0, 0);
-
+        Producto producto = new Producto("vacio", null, 0, 0);
+        scn.nextLine();
         System.out.println("Ingrese el nombre del producto");
         nombreProducto = scn.nextLine();
         if (buscarProductos(nombreProducto).size() > 0) {
             producto = buscarProductos(nombreProducto).get(0);
         }
         do {
-            System.out.println("¿Cúantos pructos de " + nombreProducto + " desea llevar?");
+            System.out.println("¿Cúantos productos de " + nombreProducto + " desea llevar?");
             cantidad = scn.nextInt();
             if (cantidad <= 0) {
                 System.out.println("Error.La cantidad tiene que ser positiva");
@@ -225,11 +225,11 @@ public class RegistroInventario {
         System.out.println("Ingrese el año de la venta");
         dia = scn.nextInt();
 
-        return new Venta(producto, cantidad, new Date(año, mes - 1, dia));
+        return new Venta(producto, cantidad, new Date(año-1900, mes - 1, dia));
     }
 
     public void registarVenta(Venta venta) {
-        if (!venta.getProducto().getNombre().equals(null) && venta.getProducto().getStock() >= venta.getCantidad()) {
+        if (!venta.getProducto().getNombre().equals("vacio") && venta.getProducto().getStock() >= venta.getCantidad()) {
 
             registoVenta.add(venta);
             venta.getProducto().setStock(venta.getProducto().getStock() - venta.getCantidad());
@@ -282,10 +282,16 @@ public class RegistroInventario {
     }
 
     public void listarVenta() {
-        for (Venta ventas : registoVenta) {
-            System.out.println(ventas);
-
+        if (registoVenta.size()>0) {
+            
+            for (Venta ventas : registoVenta) {
+                System.out.println(ventas);
+                
+            }
+        }else{
+            System.out.println("No hay ventas registradas");
         }
+        scn.nextLine();
     }
 
 }
