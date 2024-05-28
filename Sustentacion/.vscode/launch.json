@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SustentacionApplication<sustentacion>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.app.sustentacion.SustentacionApplication",
+            "projectName": "sustentacion",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
