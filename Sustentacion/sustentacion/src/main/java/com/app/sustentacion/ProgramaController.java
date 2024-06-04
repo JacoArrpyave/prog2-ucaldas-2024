@@ -37,7 +37,7 @@ public class ProgramaController {
     }
 
     @GetMapping("/programa/{nombre}")
-    public String searchTutorial(Model model, @PathVariable("programa") String nombre) {
+    public String searchTutorial(Model model, @PathVariable("nombre") String nombre) {
 
         model.addAttribute("programaAttribute", programaServices.buscarPrograma(nombre));
         return "programa";
