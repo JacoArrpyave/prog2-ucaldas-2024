@@ -6,7 +6,10 @@ import com.app.sustentacion.domain.Tutorial;
 
 public interface TutorialServices {
 
-    List<Tutorial> tutoriales();
+    List<Tutorial> showTutoriales();
+
+    Tutorial searchTutorial(String nombre);
+
 
     void SaveTutorial(Tutorial tutorial);
 }

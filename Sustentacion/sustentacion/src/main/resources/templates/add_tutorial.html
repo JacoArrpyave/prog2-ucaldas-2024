@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Añadir tutorial</h1>
-<!--     
+    <h1>Añadir formulario</h1>
+    
         <form th:action="@{/new-tutorial}" th:object="${tutorial}" method="post">
             <div>
                 <label for="nombre">Ingrese el nombre</label>
@@ -17,9 +17,23 @@
                 <label for="descripcion">Ingrese la descripcion</label>
                 <input type="text"   th:field="*{descripcion}">
             </div>
+            <div>
+                <label for="URl">Ingrese la URl</label>
+                <input type="url"   th:field="*{url}">
+            </div>
+            <div>
+                <label for="estado">Estado:Presione el boton Si el tutorial ya esta publicado</label>
+                <input type="checkbox"   th:field="*{estado}">
+            </div>
+            <div>
+                <label for="fecha">Ingrese la fecha</label>
+                <input type="date"   th:field="*{fecha}">
+            </div>
+            <div>
+                <label for="autor">Ingrese el autor</label>
+                <input type="text"   th:field="*{autor}">
+            </div>
             <button type="submit">Guardar</button>
-        </form> -->
-        <div>hola</div>
-
+        </form>
 </body>
 </html>

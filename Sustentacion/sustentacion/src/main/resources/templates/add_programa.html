@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Añadir formulario</h1>
+    
+        <form th:action="@{/new-programa}" th:object="${programa}" method="post">
+            <div>
+                <label for="nivel_estudio">Ingrese el nivel de estudio</label>
+                <input type="text"   th:field="*{nivel_estudio}">
+            </div>
+            <div>
+                <label for="nombre_programa">Ingrese el nombre del programa</label>
+                <input type="text"   th:field="*{nombre_programa}">
+            </div>
+            <div>
+                <label for="cantidad_creditos">Cantidad creditos</label>
+                <input type="number"   th:field="*{cantidad_creditos}">
+            </div>
+            <div>
+                <label for="estado">Estado:Presione el boton Si el programa ya esta ofertado</label>
+                <input type="checkbox"   th:field="*{estado}">
+            </div>
+         
+            <button type="submit">Guardar</button>
+        </form>
+    
+</body>
+</html>

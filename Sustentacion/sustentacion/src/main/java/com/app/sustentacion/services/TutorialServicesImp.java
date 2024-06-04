@@ -3,17 +3,17 @@ package com.app.sustentacion.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.sustentacion.domain.Tutorial;
 
 @Service
 public class TutorialServicesImp implements TutorialServices {
-    
-    private List<Tutorial>tutoriales=new ArrayList<>();
+
+    private List<Tutorial> tutoriales = new ArrayList<>();
+
     @Override
-    public List<Tutorial> tutoriales() {
+    public List<Tutorial> showTutoriales() {
         return tutoriales;
 
     }
@@ -22,5 +22,15 @@ public class TutorialServicesImp implements TutorialServices {
     public void SaveTutorial(Tutorial tutorial) {
         tutoriales.add(tutorial);
     }
+
+    @Override
+    public Tutorial searchTutorial(String nombre) {
+
+
+        return tutoriales.stream().filter(tutorial -> tutorial.getNombre().equals(nombre))
+        .findFirst()
+        .orElse(null);
+    }
+
 
 }

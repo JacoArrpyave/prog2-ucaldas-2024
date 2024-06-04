@@ -28,7 +28,7 @@ public class TutorialRepository {
     @Column(name = "url")
     private String url;
     @Column(name = "estado")
-    private boolean publicado;
+    private boolean estado;
     @Column(name = "fecha")
     private Date fecha;
     @Column(name = "autor")

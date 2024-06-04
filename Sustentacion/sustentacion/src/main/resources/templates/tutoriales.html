@@ -6,14 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div>hola
-        holahola
-        <!-- <table border="1">
+    <div>
+        <table border="1">
             <tr>
                 <th>Nombre</th>
-                <th>Descripcion</th>
+                <th>descripcion</th>
                 <th>URl</th>
-                <th>publicado</th>
+                <th>Publicado</th>
                 <th>Fecha</th>
                 <th>Autor</th>
             </tr>
@@ -21,15 +20,17 @@
                 <td th:text="${tutorial.nombre}"></td>
                 <td th:text="${tutorial.descripcion}"></td>
                 <td th:text="${tutorial.url}"></td>
-                <td th:text="${tutorial.pulicado}"></td>
+                <td th:text="${tutorial.estado}"></td>
                 <td th:text="${tutorial.fecha}"></td>
                 <td th:text="${tutorial.autor}"></td>
                 <td>
+                 <a th:href="@{/tutorial/{nombre}(nombre=${tutorial.nombre})}">Mostrar</a>
+                </td>
 
             </tr>
 
 
-        </table> -->
+        </table>
     </div>
 </body>
 </html>
